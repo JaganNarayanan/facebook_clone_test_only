@@ -15,8 +15,8 @@ RSpec.describe Status, type: :model do
     end
 
     describe "validates length of title & content" do
-      it { should validate_length_of(:title).is_at_least(8).with_message(/title is too short/)}
-      it { should validate_length_of(:content).is_at_least(10).with_message(/content is too short/)}
+      it { should validate_length_of(:title).is_at_least(8)}
+      it { should validate_length_of(:content).is_at_least(10)}
     end
   end
 
