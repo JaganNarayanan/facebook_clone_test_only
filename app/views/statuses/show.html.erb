@@ -1,0 +1,13 @@
+<h1> status#show page </h1>
+
+<%= Status.last.title %>
+<%= Status.last.content %>
+<%= Status.last.created_at %>
+
+<%= link_to "Update your status", edit_status_path %>
+<%= link_to "Delete your current status", status_path(Status.last), method: :delete %>
+
+<%= link_to "Like", likes_path, method: :post %>
+<% if Status.last.likes.present? %>
+
+<% end %>

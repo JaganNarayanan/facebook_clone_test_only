@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   validates :password_confirmation, presence: true
 
-  
+  def new
+  end 
 
 end

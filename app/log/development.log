@@ -97,3 +97,4 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+  [1m[36mLike Load (0.4ms)[0m  [1mSELECT "likes".* FROM "likes"[0m
