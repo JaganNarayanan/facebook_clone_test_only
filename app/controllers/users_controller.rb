@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def show
     @user = User.find(params[:id])
   end
@@ -9,14 +10,25 @@ class UsersController < ApplicationController
   end
 
   def create
+
+#   format.html {render template: "users/new"}
+#   format.js
+# end
+
     @user = User.new(user_params)
-    if @user.save
-      flash[:notice] = "Account created. Please log in now."
-      login_url @user
-      redirect_to @user
-    else
-      flash[:alert] = "Error creating account: "
-      render :new
+    respond_to do |format|
+      if @user.save
+        # flash[:notice] = "Account created. Please log in now."
+        login_url @user
+        format.html {redirect_to @user, flash:{notice:"Account created. Please log in now."} }
+        format.js
+      else
+        @errors = @user.errors.full_messages
+        format.html {render :new}
+        format.js
+        # flash[:alert] = "Error creating account: "
+        # render :new
+      end
     end
   end
 

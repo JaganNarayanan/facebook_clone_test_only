@@ -22,5 +22,3 @@ RSpec.describe "welcome/index.html.erb", type: :view do
     end
   end
 end
-
-
